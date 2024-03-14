@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="10dp"
+    tools:context=".LoginFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text1"
+            android:textStyle="bold"
+            android:text="ShopCart Login"
+            android:textColor="#90ECC4"
+            android:textSize="30sp"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_gravity="bottom"
+            android:src="@drawable/baseline_shopping_cart_checkout_24" />
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/email"
+            android:layout_marginTop="150dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/login"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter  your email"/>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login"
+            android:inputType="textPassword"
+            android:hint="Enter Password"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textColor="#90ECC4"
+            android:background="#00FFFFFF"
+            android:layout_gravity="end">
+
+        </Button>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background='@drawable/button_bg'
+            android:text="Login"
+            android:textColor="@color/white"
+            android:contextClickable="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Don't have an Account"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="SIGN UP"
+            android:textColor="#90ECC4"
+            android:layout_gravity="center"
+            android:id="@+id/signUp1" />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
