@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".HomeFragment">
-
-    <TextView
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:id="@+id/containerHome"
+        android:layout_height="600dp"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Welcome Home" />
+        android:id="@+id/homeMenu"
+        android:background="#E6E2E2"
+        app:menu="@menu/bottom_home_menu"/>
 
-</FrameLayout>
+</LinearLayout>
