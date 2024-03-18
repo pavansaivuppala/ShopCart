@@ -1,18 +1,18 @@
-package com.example.shopcart
+package com.example.shopcart.view
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.shopcart.R
 import com.example.shopcart.databinding.FragmentLoginBinding
 
-
 class LoginFragment : Fragment() {
-    private lateinit var binding:FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=FragmentLoginBinding.inflate(layoutInflater,container,false)
+        binding= FragmentLoginBinding.inflate(layoutInflater, container, false)
         // Inflate the layout for this fragment
         initPref()
 
@@ -31,7 +31,10 @@ class LoginFragment : Fragment() {
             fetchDetails()
         }
         binding.signUp1.setOnClickListener{
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,RegisterFragment()).commit()
+            requireActivity().supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainerView,
+                RegisterFragment()
+            ).commit()
             sharedPreferences.edit().putString("fragment","register").apply()
         }
         return binding.root
@@ -45,18 +48,23 @@ class LoginFragment : Fragment() {
         val passverf=sharedPreferences.getString("pass","pass")
 
         if(email == emailverf && password==passverf){
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,HomeFragment()).commit()
+            requireActivity().supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainerView,
+                HomeFragment()
+            ).commit()
             sharedPreferences.edit().putString("fragment","home").apply()
         }
         else{
             binding.email.text?.clear()
             binding.password.text?.clear()
-            Toast.makeText(context,"incorrect Details",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "incorrect Details", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun initPref(){
-        sharedPreferences = requireActivity().getSharedPreferences("Login Details", Context.MODE_PRIVATE)
+        sharedPreferences = requireActivity().getSharedPreferences("Login Details",
+            Context.MODE_PRIVATE
+        )
     }
 
 }

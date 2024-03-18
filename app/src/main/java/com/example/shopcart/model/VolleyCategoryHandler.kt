@@ -1,11 +1,11 @@
-package com.example.shopcart
+package com.example.shopcart.model
 
 import android.content.Context
 import android.util.Log
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
-import com.example.shopcart.Constant.CATEGORY_URL
+import com.example.shopcart.model.Constant.CATEGORY_URL
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -18,10 +18,10 @@ class VolleyCategoryHandler(private val context: Context?){
             CATEGORY_URL,{
                 val typeToken=object : TypeToken<CategoryResponse>(){}
                 val response= Gson().fromJson(it,typeToken)
-                Log.d("tag",response.toString())
+                Log.d("tag volley",response.toString())
                 callback.onSuccess(response)
             },{
-                Log.d("tag",it.toString())
+                Log.d("tag volley",it.toString())
                 callback.onFailure(it.toString())
             }
 

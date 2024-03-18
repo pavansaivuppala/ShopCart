@@ -1,4 +1,4 @@
-package com.example.shopcart
+package com.example.shopcart.model
 
 object Constant {
     const val CATEGORY_URL="http://192.168.1.176/myshop/index.php/Category"

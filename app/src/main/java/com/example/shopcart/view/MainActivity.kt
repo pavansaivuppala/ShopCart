@@ -1,10 +1,10 @@
-package com.example.shopcart
+package com.example.shopcart.view
 
-import android.content.Context
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.shopcart.R
 import com.example.shopcart.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,13 +12,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityMainBinding.inflate(layoutInflater)
+        binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initPref()
         InitViews()
         binding.arrowback.setOnClickListener{
             sharedPreferences.edit().putString("fragment","login")
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,LoginFragment()).commit()
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainerView,
+                LoginFragment()
+            ).commit()
         }
     }
 
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun initPref(){
-        sharedPreferences = getSharedPreferences("Login Details", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("Login Details", MODE_PRIVATE)
     }
 
 

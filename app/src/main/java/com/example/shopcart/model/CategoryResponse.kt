@@ -1,4 +1,6 @@
-package com.example.shopcart
+package com.example.shopcart.model
+
+import com.example.shopcart.model.Category
 
 data class CategoryResponse(
     val categories: List<Category>,

@@ -1,10 +1,10 @@
-package com.example.shopcart
+package com.example.shopcart.model
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shopcart.Constant.BASE_URL
+import com.example.shopcart.model.Constant.BASE_URL
 import com.example.shopcart.databinding.CustomCategoryBinding
 import com.squareup.picasso.Picasso
 
@@ -16,6 +16,10 @@ class CategoryAdapter(context: Context,val categoryList: ArrayList<CategoryData>
            Picasso.get().load(url.toString()).into(binding.categoryImage)
         }
     }
+    /*
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }*/
 
     override fun getItemCount(): Int {
         return categoryList.size

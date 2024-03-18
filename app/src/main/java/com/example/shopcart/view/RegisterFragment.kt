@@ -1,17 +1,18 @@
-package com.example.shopcart
+package com.example.shopcart.view
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.shopcart.R
 import com.example.shopcart.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
-    private lateinit var binding:FragmentRegisterBinding
+    private lateinit var binding: FragmentRegisterBinding
     private lateinit var sharedPreferences: SharedPreferences
 
 
@@ -25,7 +26,7 @@ class RegisterFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        binding=FragmentRegisterBinding.inflate(layoutInflater,container,false)
+        binding= FragmentRegisterBinding.inflate(layoutInflater, container, false)
         initPref()
 
         binding.register.setOnClickListener{
@@ -35,7 +36,10 @@ class RegisterFragment : Fragment() {
         binding.login1.setOnClickListener{
             sharedPreferences.edit().putString("fragment","login").apply()
             requireActivity().supportFragmentManager.popBackStack()
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,LoginFragment()).commit()
+            requireActivity().supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainerView,
+                LoginFragment()
+            ).commit()
         }
         return binding.root
     }
@@ -52,10 +56,13 @@ class RegisterFragment : Fragment() {
             sharedPreferences.edit().putString("pass",pass).apply()
             sharedPreferences.edit().putString("repass",pass).apply()
             sharedPreferences.edit().putString("fragment","home").apply()
-            Toast.makeText(context,"success",Toast.LENGTH_SHORT).show()
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,HomeFragment()).commit()
+            Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
+            requireActivity().supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainerView,
+                HomeFragment()
+            ).commit()
         }else{
-            Toast.makeText(context,"Enter Matching passwords",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Enter Matching passwords", Toast.LENGTH_SHORT).show()
             binding.name.text?.clear()
             binding.email.text?.clear()
             binding.password.text?.clear()
@@ -64,7 +71,9 @@ class RegisterFragment : Fragment() {
 
     }
     private fun initPref(){
-        sharedPreferences = requireActivity().getSharedPreferences("Login Details", Context.MODE_PRIVATE)
+        sharedPreferences = requireActivity().getSharedPreferences("Login Details",
+            Context.MODE_PRIVATE
+        )
 
     }
 

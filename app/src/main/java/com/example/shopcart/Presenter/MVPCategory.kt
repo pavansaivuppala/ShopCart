@@ -1,4 +1,7 @@
 package com.example.shopcart
+
+import com.example.shopcart.model.CategoryResponse
+
 interface MVPCategory {
     interface CategoryPresenter{
         fun fetchCategoryData()
