@@ -1,4 +1,4 @@
-package com.example.shopcart.model
+package com.example.shopcart.model.categoryresponse
 
 data class Category(
     val category_id: String,

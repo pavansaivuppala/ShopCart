@@ -1,6 +1,6 @@
 package com.example.shopcart
 
-import com.example.shopcart.model.CategoryResponse
+import com.example.shopcart.model.categoryresponse.CategoryResponse
 import com.example.shopcart.model.OperationalCallBackCategory
 import com.example.shopcart.model.VolleyCategoryHandler
 

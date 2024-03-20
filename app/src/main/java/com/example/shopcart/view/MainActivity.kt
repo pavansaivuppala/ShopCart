@@ -9,7 +9,7 @@ import com.example.shopcart.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPref: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         initPref()
         InitViews()
         binding.arrowback.setOnClickListener{
-            sharedPreferences.edit().putString("fragment","login")
+            sharedPref.edit().putString("fragment","login")
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragmentContainerView,
                 LoginFragment()
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun InitViews() {
-        val values = sharedPreferences.getString("fragment","login")
+        val values = sharedPref.getString("fragment","login")
         when(values){
             "login" -> changeFragment(LoginFragment())
             "register"-> changeFragment(RegisterFragment())
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun initPref(){
-        sharedPreferences = getSharedPreferences("Login Details", MODE_PRIVATE)
+        sharedPref = getSharedPreferences("Register", MODE_PRIVATE)
     }
 
 

@@ -8,74 +8,77 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.shopcart.Presenter.RegisterMVP
+import com.example.shopcart.Presenter.RegisterPresenter
 import com.example.shopcart.R
 import com.example.shopcart.databinding.FragmentRegisterBinding
+import com.example.shopcart.model.UserData
+import com.example.shopcart.model.UserVolleyHandler
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : Fragment(){
     private lateinit var binding: FragmentRegisterBinding
-    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPref:SharedPreferences
+    private lateinit var presenter: RegisterPresenter
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        // Inflate the layout for this fragment
         binding= FragmentRegisterBinding.inflate(layoutInflater, container, false)
         initPref()
-
-        binding.register.setOnClickListener{
-            getDetails()
-        }
-
-        binding.login1.setOnClickListener{
-            sharedPreferences.edit().putString("fragment","login").apply()
-            requireActivity().supportFragmentManager.popBackStack()
+        binding.login1.setOnClickListener {
+            sharedPref.edit().putString("fragment", "login").apply()
             requireActivity().supportFragmentManager.beginTransaction().replace(
                 R.id.fragmentContainerView,
                 LoginFragment()
             ).commit()
         }
+        //presenter= RegisterPresenter(UserVolleyHandler(requireContext()),this)
+
+        binding.register.setOnClickListener{
+            getDetails()
+        }
+
         return binding.root
     }
-
     private fun getDetails(){
         val email=binding.email.getText().toString()
         val name=binding.name.getText().toString()
         val pass=binding.password.getText().toString()
+        val number = binding.number.getText().toString()
         val repass=binding.repassword.getText().toString()
-        if(pass == repass){
-            sharedPreferences.edit().clear().apply()
-            sharedPreferences.edit().putString("email",email).apply()
-            sharedPreferences.edit().putString("name",name).apply()
-            sharedPreferences.edit().putString("pass",pass).apply()
-            sharedPreferences.edit().putString("repass",pass).apply()
-            sharedPreferences.edit().putString("fragment","home").apply()
-            Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
-            requireActivity().supportFragmentManager.beginTransaction().replace(
-                R.id.fragmentContainerView,
-                HomeFragment()
-            ).commit()
+        if(pass != repass) {
+            Toast.makeText(requireContext(), "hellohireenterpass", Toast.LENGTH_SHORT).show()
         }else{
-            Toast.makeText(context, "Enter Matching passwords", Toast.LENGTH_SHORT).show()
-            binding.name.text?.clear()
-            binding.email.text?.clear()
-            binding.password.text?.clear()
-            binding.repassword.text?.clear()
+            Toast.makeText(requireContext(), "hellohi", Toast.LENGTH_SHORT).show()
+            sharedPref.edit().putString("name", name).apply()
+            sharedPref.edit(). putString("email", email).apply()
+            sharedPref.edit().putString("number", number).apply()
+            sharedPref.edit().putString("password", pass).apply()
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, HomeFragment()).commit()
+            sharedPref.edit().putString("fragment","home").apply()
+
+            //presenter.sendRegisterData(UserData(email,name,number,pass))
         }
 
     }
+   /* override fun setResultRegister(status: Int, message: String) {
+        if (status == 0) {
+            showToast("registration successful")
+        } else {
+            showToast("Registration failed: $message")
+        }
+    }*/
+
     private fun initPref(){
-        sharedPreferences = requireActivity().getSharedPreferences("Login Details",
-            Context.MODE_PRIVATE
-        )
+        sharedPref = requireActivity().getSharedPreferences("Register",Context.MODE_PRIVATE)
 
     }
+
 
 
 }

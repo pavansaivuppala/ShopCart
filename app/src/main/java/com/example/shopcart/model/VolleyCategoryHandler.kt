@@ -5,11 +5,12 @@ import android.util.Log
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
+import com.example.shopcart.model.categoryresponse.CategoryResponse
 import com.example.shopcart.model.Constant.CATEGORY_URL
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class VolleyCategoryHandler(private val context: Context?){
+class VolleyCategoryHandler(private val context: Context?,private val sub_url: String){
     private val requestQueue by lazy { Volley.newRequestQueue(context)}
 
     fun makeApiCategoryCall(callback: OperationalCallBackCategory){
@@ -29,4 +30,5 @@ class VolleyCategoryHandler(private val context: Context?){
         requestQueue.add(categoryRequest)
 
     }
+
 }

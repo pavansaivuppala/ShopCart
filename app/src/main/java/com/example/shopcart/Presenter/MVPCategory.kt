@@ -1,6 +1,6 @@
 package com.example.shopcart
 
-import com.example.shopcart.model.CategoryResponse
+import com.example.shopcart.model.categoryresponse.CategoryResponse
 
 interface MVPCategory {
     interface CategoryPresenter{

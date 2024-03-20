@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.shopcart.CartFragment
+import com.example.shopcart.ProfileFragment
 import com.example.shopcart.R
 import com.example.shopcart.databinding.FragmentHomeBinding
 
@@ -34,8 +36,9 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
-    private fun changeHomeFragment(fragment: Fragment){
-        childFragmentManager.beginTransaction().replace(R.id.containerHome,fragment).commit()
+    fun changeHomeFragment(fragment: Fragment){
+        childFragmentManager.beginTransaction().add(R.id.containerHome,fragment).commit()
     }
+
 
 }
