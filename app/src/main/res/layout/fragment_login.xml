@@ -23,7 +23,7 @@
             android:id="@+id/text1"
             android:textStyle="bold"
             android:text="ShopCart Login"
-            android:textColor="#90ECC4"
+            android:textColor="@color/cyan"
             android:textSize="30sp"
             />
         <ImageView
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forgot Password?"
-            android:textColor="#90ECC4"
+            android:textColor="@color/cyan"
             android:background="#00FFFFFF"
             android:layout_gravity="end">
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:text="SIGN UP"
-            android:textColor="#90ECC4"
+            android:textColor="@color/cyan"
             android:layout_gravity="center"
             android:id="@+id/signUp1" />
 

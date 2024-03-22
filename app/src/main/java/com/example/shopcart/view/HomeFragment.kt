@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.shopcart.CartFragment
-import com.example.shopcart.ProfileFragment
 import com.example.shopcart.R
 import com.example.shopcart.databinding.FragmentHomeBinding
+import com.example.shopcart.model.CommunicatorAddToCart
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(){
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +30,7 @@ class HomeFragment : Fragment() {
                 R.id.categoryMenu -> changeHomeFragment(CategoryFragment())
                 R.id.profileMenu -> changeHomeFragment(ProfileFragment())
                 R.id.cartMenu -> changeHomeFragment(CartFragment())
+                R.id.ordersMenu -> changeHomeFragment(ListOrderFragment())
             }
         }
 
@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
     fun changeHomeFragment(fragment: Fragment){
         childFragmentManager.beginTransaction().add(R.id.containerHome,fragment).commit()
     }
+
 
 
 }

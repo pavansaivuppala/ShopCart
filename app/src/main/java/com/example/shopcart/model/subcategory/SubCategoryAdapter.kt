@@ -44,7 +44,8 @@ class SubCategoryAdapter(private val productList: List<Product>,private val comm
         }
 
         holder.itemView.setOnClickListener{
-            communicatorProduct.sendCode(position.toString())
+            val p=position+1
+            communicatorProduct.sendCode(p.toString())
         }
     }
 

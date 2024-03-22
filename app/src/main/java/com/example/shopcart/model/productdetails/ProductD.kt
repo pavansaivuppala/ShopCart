@@ -1,6 +1,6 @@
 package com.example.shopcart.model.productdetails
 
-data class Product(
+data class ProductD(
     val average_rating: String,
     val category_id: String,
     val description: String,
@@ -10,7 +10,7 @@ data class Product(
     val product_id: String,
     val product_image_url: String,
     val product_name: String,
-    val reviews: List<Any>,
+    val reviews: List<Review>,
     val specifications: List<Specification>,
     val sub_category_id: String
 )

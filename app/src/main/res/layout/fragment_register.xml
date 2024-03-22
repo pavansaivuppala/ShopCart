@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:text="ShopCart Register"
-                android:textColor="#90ECC4"
+                android:textColor="@color/cyan"
                 android:textSize="30sp"
                 />
             <ImageView
@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
                 android:text="Login"
-                android:textColor="#90ECC4"
+                android:textColor="@color/cyan"
                 android:id="@+id/login1" />
         </LinearLayout>
 

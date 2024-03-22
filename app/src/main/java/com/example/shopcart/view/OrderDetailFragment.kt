@@ -1,17 +1,16 @@
-package com.example.shopcart
+package com.example.shopcart.view
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-
 import com.example.shopcart.R
-import com.example.shopcart.databinding.FragmentProfileBinding
+import com.example.shopcart.databinding.FragmentOrderDetailBinding
 
-class ProfileFragment : Fragment() {
-    private lateinit var binding:FragmentProfileBinding
 
+class OrderDetailFragment : Fragment() {
+    private lateinit var binding: FragmentOrderDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,9 +20,9 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=FragmentProfileBinding.inflate(layoutInflater,container,false)
+        
         // Inflate the layout for this fragment
-        return binding.root
+        return inflater.inflate(R.layout.fragment_order_detail, container, false)
     }
 
 }

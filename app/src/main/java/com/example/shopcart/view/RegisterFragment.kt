@@ -3,6 +3,7 @@ package com.example.shopcart.view
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +37,6 @@ class RegisterFragment : Fragment(){
                 LoginFragment()
             ).commit()
         }
-        //presenter= RegisterPresenter(UserVolleyHandler(requireContext()),this)
 
         binding.register.setOnClickListener{
             getDetails()
@@ -61,16 +61,18 @@ class RegisterFragment : Fragment(){
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView, HomeFragment()).commit()
             sharedPref.edit().putString("fragment","home").apply()
-
+           // presenter= RegisterPresenter(UserVolleyHandler(requireContext()),this)
             //presenter.sendRegisterData(UserData(email,name,number,pass))
         }
 
     }
-   /* override fun setResultRegister(status: Int, message: String) {
+    /*override fun setResultRegister(status: Int, message: String) {
         if (status == 0) {
-            showToast("registration successful")
+            Toast.makeText(requireContext(), "Registration successfull", Toast.LENGTH_SHORT).show()
+            Log.e("registratiom", "success")
         } else {
-            showToast("Registration failed: $message")
+            Toast.makeText(requireContext(), "Registration failed: $message", Toast.LENGTH_SHORT).show()
+            Log.e("registratiom", "Registration failed: $message")
         }
     }*/
 

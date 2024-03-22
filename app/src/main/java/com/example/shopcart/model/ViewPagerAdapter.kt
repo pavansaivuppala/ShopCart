@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.shopcart.model.Constant.SUB_CATEGORY_ID
 import com.example.shopcart.model.subcategory.Subcategory
-import com.example.shopcart.view.AndroidFragment
+import com.example.shopcart.view.SubcategoryItemsFragment
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val subCategoryList: ArrayList<Subcategory>): FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int {
@@ -15,7 +15,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val subCatego
 
     override fun createFragment(position: Int): Fragment {
 
-        return AndroidFragment().apply {
+        return SubcategoryItemsFragment().apply {
             val bundle = Bundle(1)
             bundle.putString(SUB_CATEGORY_ID, subCategoryList[position].subcategory_id) // key , value
             this.arguments = bundle

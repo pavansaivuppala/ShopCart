@@ -8,10 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shopcart.Presenter.SubCategoryPresenter
-import com.example.shopcart.databinding.FragmentAndroidBinding
 import com.example.shopcart.model.subcategory.Product
 import com.example.shopcart.Presenter.MVPSubCategory
 import com.example.shopcart.R
+import com.example.shopcart.databinding.FragmentSubcategoryItemBinding
+import com.example.shopcart.model.CommunicatorAddToCart
 import com.example.shopcart.model.Constant.SUB_CATEGORY_ID
 import com.example.shopcart.model.SubCategoryVolleyHandler
 import com.example.shopcart.model.subcategory.CommunicatorProduct
@@ -19,8 +20,8 @@ import com.example.shopcart.model.subcategory.SubCategoryAdapter
 import com.example.shopcart.model.subcategory.SubCategoryProductResponse
 
 
-class AndroidFragment : Fragment(), MVPSubCategory.SubCategoryView,CommunicatorProduct {
-    private lateinit var binding: FragmentAndroidBinding
+class SubcategoryItemsFragment : Fragment(), MVPSubCategory.SubCategoryView,CommunicatorProduct{
+    private lateinit var binding: FragmentSubcategoryItemBinding
     private lateinit var subCategoryId: String
     private lateinit var presenter: SubCategoryPresenter
     private lateinit var productList: List<Product>
@@ -30,7 +31,7 @@ class AndroidFragment : Fragment(), MVPSubCategory.SubCategoryView,CommunicatorP
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentAndroidBinding.inflate(layoutInflater, container, false)
+        binding = FragmentSubcategoryItemBinding.inflate(layoutInflater, container, false)
         subCategoryId = arguments?.getString(SUB_CATEGORY_ID).toString()
         Log.d("hello",subCategoryId)
         return binding.root
@@ -61,7 +62,7 @@ class AndroidFragment : Fragment(), MVPSubCategory.SubCategoryView,CommunicatorP
     override fun sendCode(id: String) {
         val fragment = ProductFragment()
         val bundle = Bundle()
-        bundle.putString("URL", id)
+        bundle.putString("ProductId", id)
         fragment.arguments=bundle
 
 
@@ -78,4 +79,5 @@ class AndroidFragment : Fragment(), MVPSubCategory.SubCategoryView,CommunicatorP
             binding.circularProgressBar.visibility = View.GONE
         }
     }
+
 }

@@ -11,6 +11,7 @@ import com.example.shopcart.CategoryPresenter
 import com.example.shopcart.MVPCategory
 import com.example.shopcart.R
 import com.example.shopcart.databinding.FragmentCategoryBinding
+import com.example.shopcart.model.CommunicatorAddToCart
 import com.example.shopcart.model.categoryresponse.CategoryAdapter
 import com.example.shopcart.model.categoryresponse.CategoryData
 import com.example.shopcart.model.categoryresponse.CategoryResponse
@@ -66,6 +67,7 @@ class CategoryFragment : Fragment(), MVPCategory.CategoryView,CommunicatorSubcat
 
         homeFragment?.changeHomeFragment(fragment)
     }
+
 
     override fun showErrorCategory(message: String) {
         Log.d("Failure", message)
